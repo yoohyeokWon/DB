@@ -10,13 +10,14 @@ DataBase
 5. Backup
 6. Index
 7. Query
+실행순서
 * SELECT
-* FROM
+* FROM ( + Join ) 
 * WHERE
->GROUP BY
->HAVING
->ORDER BY
-
+* GROUP BY
+* HAVING
+* ORDER BY
+> FROM -> WHERE -> GROUP BY -> HAVING -> SELECT -> ORDER BY
 
 
 
