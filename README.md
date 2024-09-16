@@ -51,10 +51,39 @@ NoSQL
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;정규화의 목표는 __테이블간 중복 데이터를 허용하지 않는다__임
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;정규화의 장점으로는 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;데이터 변경 시 이상현상을 제거 할수있고,
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;정규화된 데이터베이스 구조에서 새로운 데이터 타입의 추가로 인한 확장 시 구조를 변경하지 않거나 일부만 변경해도 되는거고
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;반대로 단점으로는
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;테이블 정규화로 인한 Join 연산이 많아지고 연산이 많아짐에 따라 응답속도가 느려질수 있다
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;이로 인해 __반정규화__라는 것도 적용할수있
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1정규화]
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1정규화는 컬럼이 원자값(하나의 값)을 갖도록 테이블을 분리하는것이고, 아래 규칙을 만족해야함
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1. 각 컬럼이 하나의 속성만 가져아한다
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2. 하나의 컬럼은 같은 종류의 데이터 타입을 가져야한다
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3. 각 컬럼이 유일한 이름을 가져야한다
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4. 컬럼의 순서가 상관 없어야한다 
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;아래 예시 테이블은 제 1정규화 중 1번 규칙에 대한 조건이 성립하지 않는다 ( 2~4번 규칙은 성립 )
+
 ![image](https://github.com/user-attachments/assets/2298d19e-903f-4d7c-8ead-9fc1102c6593)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;이제 1번 규칙까지 성립하게 변경하면 아래 형태로 테이블이 바뀌게 되고, 이러면 1정규화가 끝난다
+
+![image](https://github.com/user-attachments/assets/23482dc4-1e0a-4d30-8681-d3cb243a27a7)
+
 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2정규화]
