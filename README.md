@@ -2,8 +2,10 @@ DataBase
 ========
 
 
-
+<summary>
 ## OLTP ( Online Transaction Processing )
+</summary>
+   Online Transaction Processing
 ## OLAP ( Online Analytical Processing )
 ## Data File
 ## Log
@@ -24,7 +26,7 @@ DataBase
 
 <details>
   
-<summary>
+
   토글 제목
 </summary>
    토글 안 내용
