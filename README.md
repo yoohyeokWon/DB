@@ -88,8 +88,6 @@ NoSQL
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2정규화]
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;자 이제 2정규화 ㄱㄱ 
-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2정규화는 __완전 함수 종속__ 을 만족 해야한다는건데, 일단 규칙은 아래 2개이다 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1. 1정규화 규칙을 모두 만족
@@ -113,9 +111,43 @@ NoSQL
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[3정규화]
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3정규화는 _이행 종속_ 을 없애버리는 것 규칙은 아래 2개
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1. 2정규화 규칙을 모두 만족
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2. 기본키를 제외한 속성들 간 이행 종속이 없어야 한다
+
+![image](https://github.com/user-attachments/assets/6d705de0-6d39-4208-aab7-87026c72c959)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 이런 테이블이 있다고 해보자, 일단 이행 종속이란 A->B , B->C  일때 A->C 가 성립한다는 얘기인데 이게 딱 3정규화 규칙에 어긋난 상태
+
+![image](https://github.com/user-attachments/assets/01d63505-b2c0-47ab-8782-159a5f2db6c8)
+![image](https://github.com/user-attachments/assets/de52349d-75ae-4eb9-b047-6765d7c50247)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 이렇게 바꿔주면 3정규화도 끝!
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[BCNF 정규화]
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BCNF는 Boyce-Codd Normal Form 의 약자로 강화된 3정규화 라고 보면 된다 규칙은,
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1. 3정규화 규칙을 모두 만족
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2. 모든 결정자가 후보키 집합에 속해야됨
+
+![image](https://github.com/user-attachments/assets/3fa0c42a-5635-432f-895d-68468561bec4)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 이것도 그림으로 보면 기본키인 _학생명_ , _과목_ 으로 _교수명_ 을 알 수 있지만 같은 _과목_ 을 다른 교수가 가르칠 수 있어서
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _과목_ -> _교수명_ 의 종속은 성립하지 않고 _교수명_ -> _과목_ 의 종속만 성립 할 수 있다 
+
+![image](https://github.com/user-attachments/assets/917d8c86-46ac-466b-a2f0-2b1e37ab93a4)
+![image](https://github.com/user-attachments/assets/81f6beb4-b08c-4df3-be7c-3592ee61e062)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 따라서 위에 처럼 테이블을 나누게 되면 BCNF 정규화 까지 만족 하게 된다.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; BCNF 정규화 다음으로 4정규화 ( 다치 종속 제거 ) , 5정규화 ( 모든 조인 종속 후보키를 통해서만 성립 )  까지있긴 하지만 5정규화 까지 모두 만족 하려면 실제 테이블에 컬럼이 딱 2개씩만 존재해야 하기때문에
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 실제 운영환경에서는 3정규화 이후의 정규화는 거의 사용하지 않으므로, 나중에 시간이 나면 그때 다시 정리
 
 
 
