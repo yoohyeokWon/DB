@@ -49,7 +49,7 @@ NoSQL
 
 정규화
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;정규화의 목표는 __테이블간 중복 데이터를 허용하지 않는다__임
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;정규화의 목표는 __테이블간 중복 데이터를 허용하지 않는다__ 임
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;정규화의 장점으로는 
 
@@ -61,7 +61,7 @@ NoSQL
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;테이블 정규화로 인한 Join 연산이 많아지고 연산이 많아짐에 따라 응답속도가 느려질수 있다
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;이로 인해 __반정규화__라는 것도 적용할수있
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;이로 인해 __반정규화__ 라는 것도 적용할수있
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1정규화]
 
@@ -87,6 +87,20 @@ NoSQL
 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2정규화]
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;자 이제 2정규화 ㄱㄱ 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2정규화의 규칙으로는
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1. 1정규화 규칙을 모두 만족
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2. 모든 컬럼이 부분 종속이 없어야 한다 ( 모든 컬럼이 완전 함수 종속을 만족해야 한다 )
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 부분 종속이 무엇이냐 ?
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 기본키 중, 특정 컬럼에만 종속을 시켜야 한다 인데 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
