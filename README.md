@@ -36,24 +36,6 @@ NoSQL
 ## OLAP ( Online Analytical Processing )
 데이터 분석, 집계 ( select )
 
-## Data File
-
-MySQL
-
-&nbsp;&nbsp;
-
-MSSQL
-
-&nbsp;&nbsp;
-
-## Log
-
-MySQL
-
-MSSQL
-
-## Backup
-
 ## Table
 
 정규화
@@ -79,6 +61,40 @@ index page
 * HAVING
 * ORDER BY
 > FROM -> WHERE -> GROUP BY -> HAVING -> SELECT -> ORDER BY
+
+
+## MySQL
+1. Architecture
+
+2. Log
+
+&nbsp;&nbsp;binlog
+
+&nbsp;&nbsp;redo log 
+
+3. Data file
+
+&nbsp;&nbsp;디렉토리는 database name 으로 생성되고 tablename.frm 파일로 
+
+https://fliedcat.tistory.com/80
+https://blog.naver.com/bomyzzang/220135848812
+
+
+## MSSQL
+
+1. Architecture
+
+2. Log
+
+&nbsp;&nbsp;transaction log
+
+&nbsp;&nbsp;
+
+3. Data file
+
+&nbsp;&nbsp;mdf
+
+&nbsp;&nbsp;ldf
 
 ## Aurora RDS
 
