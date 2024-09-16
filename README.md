@@ -90,19 +90,26 @@ NoSQL
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;자 이제 2정규화 ㄱㄱ 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2정규화의 규칙으로는
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2정규화는 __완전 함수 종속__ 을 만족 해야한다는건데, 일단 규칙은 아래 2개이다 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1. 1정규화 규칙을 모두 만족
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2. 모든 컬럼이 부분 종속이 없어야 한다 ( 모든 컬럼이 완전 함수 종속을 만족해야 한다 )
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 부분 종속이 무엇이냐 ?
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 그럼 이제 부분 종속이 무엇이냐 ?
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 기본키 중, 특정 컬럼에만 종속을 시켜야 한다 인데 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 기본키 중, 특정 컬럼에만 종속을 시켜야 한다 인데 글보단 눈으로 보는게 빠르니 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![image](https://github.com/user-attachments/assets/88ae33bf-9e80-4e8b-b2f3-cac1dca3bce7)
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 위에 테이블 구조를 봤을때 기본키 _이름_ 과 _과목_ 에 대한 종속 컬럼은 _점수_ 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 기본키 _과목_ 에 대한 종속 컬럼은 _강의실_ , 이제 2정규화 조건을 맞춰 주기 위해 
+
+![image](https://github.com/user-attachments/assets/a02d7f20-c7a3-45d3-9bf8-da97a66708dd)
+![image](https://github.com/user-attachments/assets/23a7da86-0bf8-4738-afe2-20ad3576a2bb)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 이렇게 2개의 테이블로 나누게 되면 2정규화 완성! 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[3정규화]
 
