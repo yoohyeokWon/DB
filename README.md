@@ -31,7 +31,7 @@ OLAP ( Online Analytical Processing )
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;데이터 분석, 집계 ( select )
 
-
+******
 
 NoSQL
 
