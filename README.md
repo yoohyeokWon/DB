@@ -3,13 +3,13 @@ DataBase
 
 
 
-1. OLTP ( Online Transaction Processing )
-2. OLAP ( Online Analytical Processing )
-3. Data File
-4. Log
-5. Backup
-6. Index
-7. Query
+## OLTP ( Online Transaction Processing )
+## OLAP ( Online Analytical Processing )
+## Data File
+## Log
+## Backup
+## Index
+## Query
 
 실행순서
 * SELECT
