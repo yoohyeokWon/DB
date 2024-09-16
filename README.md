@@ -8,25 +8,25 @@ Relational Database Management System의 약자 관계형 데이터베이스 관
 
 
 
-      ACID 규정 
+ACID 규정 
 
-      &nbsp;&nbsp;원자성(Atomicity)
+&nbsp;&nbsp;원자성(Atomicity)
             
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;트랜잭션은 분해 불가한 최소의 단위
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;트랜잭션은 분해 불가한 최소의 단위
 
-      &nbsp;&nbsp;일관성(Consistency)
+&nbsp;&nbsp;일관성(Consistency)
 
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;트랜잭션의 시작 전, 후로 일관성있는 데이터베이스 상태 유지
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;트랜잭션의 시작 전, 후로 일관성있는 데이터베이스 상태 유지
 
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;varchar(255)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;varchar(255)
 
-      &nbsp;&nbsp;독립성(Isolation)
+&nbsp;&nbsp;독립성(Isolation)
 
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;하나의 트랜잭션 수행 중엔 다른 트랜잭션에 영향을 주어도, 간섭을 받아서도 안됨
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;하나의 트랜잭션 수행 중엔 다른 트랜잭션에 영향을 주어도, 간섭을 받아서도 안됨
 
-      &nbsp;&nbsp;지속성(Durability)
+&nbsp;&nbsp;지속성(Durability)
 
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;트랜잭션이 완료되고 정상처리가 되었다면 영구적으로 결과를 유지함 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;트랜잭션이 완료되고 정상처리가 되었다면 영구적으로 결과를 유지함 
 
 
 
@@ -42,12 +42,22 @@ OLAP ( Online Analytical Processing )
 
 NoSQL
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Key-Value / Document / column family / graph 등 과 같은 schema free 인 모델을 지원........ 아 이건 나중에 하자
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Key-Value / Document / column family / graph 등 과 같은 schema free 인 모델을 지원 __아....... 이건 나중에 하자__
 
 
 ## Table
 
 정규화
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1정규화]
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2정규화]
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[3정규화]
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[BCNF 정규화]
+
+
 
 ## Index
 
