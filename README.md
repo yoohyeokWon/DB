@@ -7,13 +7,13 @@ ACID 규정
 
 &nbsp;&nbsp;원자성(Atomicity)
 
-&nbsp;&nbsp;&nbsp;&nbsp;트랜잭션은 분해 불가한 최소의 단위
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;트랜잭션은 분해 불가한 최소의 단위
 
 &nbsp;&nbsp;일관성(Consistency)
 
-&nbsp;&nbsp;&nbsp;&nbsp;트랜잭션의 시작 전, 후로 일관성있는 데이터베이스 상태 유지
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;트랜잭션의 시작 전, 후로 일관성있는 데이터베이스 상태 유지
 
-&nbsp;&nbsp;&nbsp;&nbsp;varchar(255)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;varchar(255)
 
 &nbsp;&nbsp;독립성(Isolation)
 
@@ -21,19 +21,21 @@ ACID 규정
 
 &nbsp;&nbsp;지속성(Durability)
 
-&nbsp;&nbsp;&nbsp;&nbsp;트랜잭션이 완료되고 정상처리가 되었다면 영구적으로 결과를 유지함 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;트랜잭션이 완료되고 정상처리가 되었다면 영구적으로 결과를 유지함 
 
 OLTP ( Online Transaction Processing )
 
-&nbsp;&nbsp;데이터 처리 ( insert , update , delete )
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;데이터 처리 ( insert , update , delete )
    
 OLAP ( Online Analytical Processing )
 
-&nbsp;&nbsp;데이터 분석, 집계 ( select )
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;데이터 분석, 집계 ( select )
+
+
 
 NoSQL
 
-&nbsp;&nbsp;Key-Value / Document / column family / graph 등 과 같은 schema free 인 모델을 지원........ 아 이건 나중에 하자
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Key-Value / Document / column family / graph 등 과 같은 schema free 인 모델을 지원........ 아 이건 나중에 하자
 
 
 ## Table
