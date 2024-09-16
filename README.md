@@ -10,9 +10,9 @@ DataBase
 5. Backup
 6. Index
 7. Query
->SELECT
->FROM
->WHERE
+*SELECT
+*FROM
+*WHERE
 >GROUP BY
 >HAVING
 >ORDER BY
