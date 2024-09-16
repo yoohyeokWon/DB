@@ -12,6 +12,7 @@ ACID 규정
 &nbsp;&nbsp;일관성(Consistency)
 
 &nbsp;&nbsp;&nbsp;&nbsp;트랜잭션의 시작 전, 후로 일관성있는 데이터베이스 상태 유지
+
 &nbsp;&nbsp;&nbsp;&nbsp;varchar(255)
 
 &nbsp;&nbsp;독립성(Isolation)
@@ -37,23 +38,49 @@ NoSQL
 
 ## Data File
 
+&nbsp;&nbsp;MySQL
+
+&nbsp;&nbsp;
+
+&nbsp;&nbsp;MSSQL
+
+&nbsp;&nbsp;
+
 ## Log
+
+&nbsp;&nbsp;MySQL
+
+&nbsp;&nbsp;MSSQL
 
 ## Backup
 
+## Table
+
+&nbsp;&nbsp;정규화
+
 ## Index
 
+&nbsp;&nbsp;b-tree 
+
+&nbsp;&nbsp;b+tree
+
+&nbsp;&nbsp;clustered index
+
+&nbsp;&nbsp;nonclustered index
+
+&nbsp;&nbsp;index page 
+
 ## Query
-실행순서
-* SELECT
-* FROM ( + Join ) 
-* WHERE
+&nbsp;&nbsp;실행순서
+&nbsp;&nbsp;* SELECT
+&nbsp;&nbsp;* FROM ( + Join ) 
+&nbsp;&nbsp;* WHERE
 * GROUP BY
 * HAVING
 * ORDER BY
 > FROM -> WHERE -> GROUP BY -> HAVING -> SELECT -> ORDER BY
 
-
+## Aurora RDS
 
 
 
