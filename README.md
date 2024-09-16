@@ -1,8 +1,11 @@
 DataBase
-========
+------
+
 ## RDBMS
 Relational Database Management System의 약자 관계형 데이터베이스 관리 시스템 
------
+
+========
+
 ACID 규정 
 
 &nbsp;&nbsp;원자성(Atomicity)
@@ -22,6 +25,8 @@ ACID 규정
 &nbsp;&nbsp;지속성(Durability)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;트랜잭션이 완료되고 정상처리가 되었다면 영구적으로 결과를 유지함 
+
+========
 
 OLTP ( Online Transaction Processing )
 
