@@ -4,8 +4,8 @@ DataBase
 
 ## OLTP ( Online Transaction Processing )
 <details>
-   ## OLTP ( Online Transaction Processing )
 <summary>
+   ## OLTP ( Online Transaction Processing )
 </summary>
    Online Transaction Processing
 </details>
