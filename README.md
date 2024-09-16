@@ -1,14 +1,17 @@
+DataBase
+=============
+
 ## RDBMS
-========
+******
 
 Relational Database Management System의 약자 관계형 데이터베이스 관리 시스템 
 
 
 
-ACID 규정 
+      ACID 규정 
 
 &nbsp;&nbsp;원자성(Atomicity)
-
+            
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;트랜잭션은 분해 불가한 최소의 단위
 
 &nbsp;&nbsp;일관성(Consistency)
@@ -25,7 +28,7 @@ ACID 규정
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;트랜잭션이 완료되고 정상처리가 되었다면 영구적으로 결과를 유지함 
 
-========
+
 
 OLTP ( Online Transaction Processing )
 
