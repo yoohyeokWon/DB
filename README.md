@@ -1,9 +1,10 @@
 DataBase
 ========
 
+
+## OLTP ( Online Transaction Processing )
 <details>
 <summary>
-## OLTP ( Online Transaction Processing )
 </summary>
    Online Transaction Processing
 </details>
