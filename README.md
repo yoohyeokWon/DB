@@ -17,7 +17,7 @@ ACID 규정
 
 &nbsp;&nbsp;독립성(Isolation)
 
-&nbsp;&nbsp;&nbsp;&nbsp;하나의 트랜잭션 수행 중엔 다른 트랜잭션에 영향을 주어도, 간섭을 받아서도 안됨
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;하나의 트랜잭션 수행 중엔 다른 트랜잭션에 영향을 주어도, 간섭을 받아서도 안됨
 
 &nbsp;&nbsp;지속성(Durability)
 
