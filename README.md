@@ -8,7 +8,7 @@ Relational Database Management System의 약자 관계형 데이터베이스 관
 
 
 
-ACID 규정 
+1. ACID 규정 
 
 &nbsp;&nbsp;원자성(Atomicity)
             
@@ -30,11 +30,11 @@ ACID 규정
 
 
 
-OLTP ( Online Transaction Processing )
+2. OLTP ( Online Transaction Processing )
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;데이터 처리 ( insert , update , delete )
    
-OLAP ( Online Analytical Processing )
+3. OLAP ( Online Analytical Processing )
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;데이터 분석, 집계 ( select )
 
@@ -47,7 +47,7 @@ NoSQL
 
 ## Table
 
-정규화
+1. 정규화
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1정규화]
 
