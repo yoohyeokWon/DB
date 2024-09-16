@@ -27,14 +27,13 @@ NoSQL
 
 &nbsp;&nbsp;Key-Value / Document / column family / graph 등 과 같은 schema free 인 모델을 지원........ 아 이건 나중에 하자
 
+OLTP ( Online Transaction Processing )
 
-
-
-## OLTP ( Online Transaction Processing )
-데이터 처리 ( insert , update , delete )
+&nbsp;&nbsp;데이터 처리 ( insert , update , delete )
    
-## OLAP ( Online Analytical Processing )
-데이터 분석, 집계 ( select )
+OLAP ( Online Analytical Processing )
+
+&nbsp;&nbsp;데이터 분석, 집계 ( select )
 
 ## Table
 
