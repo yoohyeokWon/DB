@@ -47,13 +47,21 @@ NoSQL
 
 ## Table
 
-1. 정규화
+정규화
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;정규화의 목표는 __테이블간 중복 데이터를 허용하지 않는다__임
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1정규화]
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2정규화]
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[3정규화]
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[BCNF 정규화]
 
