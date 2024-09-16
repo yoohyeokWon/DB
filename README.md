@@ -54,6 +54,8 @@ NoSQL
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1정규화]
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![image](https://github.com/user-attachments/assets/2298d19e-903f-4d7c-8ead-9fc1102c6593)
+
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2정규화]
 
