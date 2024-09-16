@@ -38,43 +38,43 @@ NoSQL
 
 ## Data File
 
-&nbsp;&nbsp;MySQL
+MySQL
 
 &nbsp;&nbsp;
 
-&nbsp;&nbsp;MSSQL
+MSSQL
 
 &nbsp;&nbsp;
 
 ## Log
 
-&nbsp;&nbsp;MySQL
+MySQL
 
-&nbsp;&nbsp;MSSQL
+MSSQL
 
 ## Backup
 
 ## Table
 
-&nbsp;&nbsp;정규화
+정규화
 
 ## Index
 
-&nbsp;&nbsp;b-tree 
+b-tree 
 
-&nbsp;&nbsp;b+tree
+b+tree
 
-&nbsp;&nbsp;clustered index
+clustered index
 
-&nbsp;&nbsp;nonclustered index
+nonclustered index
 
-&nbsp;&nbsp;index page 
+index page 
 
 ## Query
-&nbsp;&nbsp;실행순서
-&nbsp;&nbsp;* SELECT
-&nbsp;&nbsp;* FROM ( + Join ) 
-&nbsp;&nbsp;* WHERE
+실행순서
+* SELECT
+* FROM ( + Join ) 
+* WHERE
 * GROUP BY
 * HAVING
 * ORDER BY
