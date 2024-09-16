@@ -10,6 +10,7 @@ DataBase
 5. Backup
 6. Index
 7. Query
+
 실행순서
 * SELECT
 * FROM ( + Join ) 
