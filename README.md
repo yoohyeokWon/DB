@@ -155,15 +155,41 @@ NoSQL
 
 ## Index
 
-b-tree 
+인덱스 알고리즘
 
-b+tree
+B-tree
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 최상위 하나의 루트 노드가 존재 하고 하위에 자식 노드가 붙어있는 형태
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 트리 구조의 최하위는 리프 노트 이고, 루트와 리프가 아닌 노드는 브랜치 노드라 한다. 구조는 아래
+   
+![image](https://github.com/user-attachments/assets/825edb10-1904-4c8a-8178-4c4fee18290e)
+
+
+
+page 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터 파일을 구성하는 기본적인 단위로 MySQL은 16KB MSSQL 8KB 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터를 insert 하면 실질적으로는 page에 들어가게 되고 select를 하면 테이블을 읽는게 아닌 page에서 데이터를 읽어온다
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; B-tree 구조의 노드에서도 담을수 있는 인덱스의 사이즈는 16KB이며, 이게 나중에 인덱스 설계할때도 중요하
 
 clustered index
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 nonclustered index
 
-index page 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+https://jeong-pro.tistory.com/242
+
+인덱스 선정 방법 
 
 ## Query
 실행순서
@@ -188,9 +214,7 @@ index page
 3. Data file
 
 &nbsp;&nbsp;디렉토리는 database name 으로 생성되고 tablename.frm 파일로 
-
-https://fliedcat.tistory.com/80
-https://blog.naver.com/bomyzzang/220135848812
+ 
 
 
 ## MSSQL
