@@ -275,7 +275,46 @@ data type
 
 Partition
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; partitioning 이란 테이블을 관리하기 쉬운 단위로 분리하는 것
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MySQL에서 table partition 을 하게 되면 하나의 테이블로 보이지만 실제로는
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; partition key 별로 데이터 파일이 따로 생성 된다 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; partition 방법 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Vertical 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; column 단위로 데이터를 partition 하는 방법 , 데이터 정규화와 비슷하다
+
+![image](https://github.com/user-attachments/assets/302dc5d5-795a-4983-b40b-7421dc455a7c)
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Horizontal 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; row 단위로 데이터를 partition 하는 방법 
+
+
+![image](https://github.com/user-attachments/assets/7f4a2b01-c5a3-40e2-9b5c-608f58717b2f)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Horizontal partition의 종류
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1. RANGE
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 범위 단위로 데이터를 파티션하는 방법
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 주로 날짜, 시간을 파티션 키로 사용하는 경우 여기에 해당 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2. LIST
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 특정 값을 기준으로 데이터를 파티션하는 방법
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 주로 정형화 되어있는 카테고리 값을 파티션 키로 사용한느 경우 여기에 해당 ( ex : 성별 ) 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3. HASH
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터를 적당히 나누기 힘들 경우 파티션 키를 해싱하여 모듈러 연산(%)을 통해 파티션하는 방법
+
 
 
 ## Index
@@ -318,15 +357,39 @@ nonclustered index
 
 인덱스 선정 기준
 
-1. 분포도 ( Cardinality ) 
+1. 카디널리티 ( Cardinality ) 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 카디널리티란, value 에 대한 중복도이다 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 카디널리티가 높다 = 한 컬럼에서 갖고 있는 값의 중복도가 낮다 (대부분 다른 값을 가지고있는 경우다)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 카디널리티가 낮다 = 한 컬럼에서 갖고 있는 값의 중복도가 높다 (대부분 같은 값을 가지고있는 경우다)
 
 2. 선택도 ( Selectivity )
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 선택도는 낮을수록 좋다
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 선택도가 낮다 = 한 컬럼에서 갖고 있는 값 하나로 적은 개수의 row를 찾는다 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 선택도가 높다 = 한 컬럼에서 갖고 있는 값 하나로 많은 개수의 row를 찾는다
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 선택도계산법 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 특정 값을 가진 컬럼의 row 수 / 총 테이블의 row 수 * 100
 
 3. 조회 활용도
 
 4. 수정 빈도
 
+multi-column index 
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 인덱스 생성 시 꼭 하나의 컬럼으로 인덱스를 생성하지 않고 여러개의 컬럼으로
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 인덱스를 생성할 수 있는데 이것을 멀티컬럼 인덱스라고 한다
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 멀티컬럼 인덱스 생성 시 고민해야될 사항은 선행 컬럼을 어떤 것으로 선언 하냐이다
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WHERE 절에 필수로 들어가는 값을 선행 컬럼으로 선언하면 좋다 
 
 ## Query
 실행순서
