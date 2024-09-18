@@ -151,6 +151,127 @@ NoSQL
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 실제 운영환경에서는 3정규화 이후의 정규화는 거의 사용하지 않으므로, 나중에 시간이 나면 그때 다시 정리
 
+data type
+
+문자형형
+
+1. CHAR
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;고정 길이 데이터 최대 255 Byte ( 지정 길이보다 짧을 경우 나머지 공간은 공백으로 채워짐 )
+
+2. VARCHAR
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;가변 길이 데이터 최대 65535 Byte ( 지정 길이보다 짧을 경우 나머지 공간은 채우지 않음 )
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;varchar(255) 와 varchar(266) 의 차이
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;varchar 의 경우 저장할 값의 byte + 그 값의 길이를 나타내는 byte 를 저장하는데
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;255까지는 길이를 1byte 로 저장하지면 255를 초과하게 되면 길이를 1 byte로 저장할수 없기에 2 byte 로 저장
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;255를 초과하게 되면 2 byte씩 더 저장함..
+
+3. TINYTEXT
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;문자열 데이터 최대 255 Byte
+
+4. TEXT
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;문자열 데이터 최대 65535 Byte
+
+5. MEDIUMTEXT
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;문자열 데이터 최대 16777215 Byte
+
+6. LONGTEXT
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;문자열 데이터 최대 4294967295 Byte
+
+7. JSON
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JSON 문자열 데이터
+
+숫자형
+
+1. TINYINT
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;정수형 데이터  1 byte -128 ~ +127 or 0 ~ 255
+
+2. SMALLINT
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;정수형 데이터  2 byte -32768 ~ +32767 or 0 ~ 65536
+
+3. MEDIUMINT
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;정수형 데이터  3 byte -8388608 ~ +8388607 or 0 ~ 16777215
+
+4. INT
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;정수형 데이터  4 byte -2147483648 ~ +2147483647 or 0 ~ 4294967295
+
+5. BIGINT
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;정수형 데이터  8 byte -9223372036854775808 ~ +9223372036854775807 
+
+6. FLOAT
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;부동 소수형 데이터 4 byte
+
+7. DECIMAL
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;고정 소수형 데이터 길이 + 1 byte
+
+8. DOUBLE
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;부동 소수형 데이터 8 byte
+
+날짜형
+
+1. DATE
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 날짜(년도,월,일) 형태 3 byte 
+
+2. TIME
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 시간(시,분,초) 형태 3 byte
+
+3. DATETIME
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 날짜와 시간 형테 8 byte
+
+4. TIMESTAMP
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 날짜와 시간 형테 4 byte
+
+5. YEAR
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 년도 1 byte
+
+이진 데이터
+
+1. BINARY & BYETE
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CHAR의 형태의 이진 데이터   255 byte
+
+2. VARBINARY
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; VARCHAR의 형태의 이진 데이터   65535 byte
+
+3. TINYBLOB
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 이진 데이터 255 byte
+
+4. BLOB
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 이진 데이터 65535 byte
+
+5. MEDIUMBLOB
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 이진 데이터 1677215 byte
+
+6. LONGBLOB
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 이진 데이터 4294967295 byte
 
 
 ## Index
@@ -173,7 +294,7 @@ page
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터를 insert 하면 실질적으로는 page에 들어가게 되고 select를 하면 테이블을 읽는게 아닌 page에서 데이터를 읽어온다
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; B-tree 구조의 노드에서도 담을수 있는 인덱스의 사이즈는 16KB이며, 이게 나중에 인덱스 설계할때도 중요하
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; B-tree 구조의 노드에서도 담을수 있는 인덱스의 사이즈는 16KB이며, 인덱스 컬럼을 잡을때 사이즈가 작을 수록 한 페이지에 많이담을수있음
 
 clustered index
 
