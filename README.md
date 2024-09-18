@@ -153,7 +153,7 @@ NoSQL
 
 data type
 
-문자형형
+문자형
 
 1. CHAR
 
@@ -179,6 +179,23 @@ data type
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;문자열 데이터 최대 65535 Byte
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text 와 varchar의 차이도 궁금 하겠지 ?
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;테이블을 생성 할 때 varchar(16382) 로 컬럼을 하나 생성 하고, 이후에 ADD COLUMN 으로 varchar(10)을 추가하면
+
+![image](https://github.com/user-attachments/assets/ee92b5d4-0cd2-4245-a406-b6792afd25ff)
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;이렇게 ERROR 1118이 발생 하는데, 테이블은 하나의 레코드가 저장할 최대 길이수인 65535 byte를 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;초과 했기때문에 새로운 컬럼을 추가하지 못하는것이고
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LOB (text , blob 같은 대용량 데이터를 저장하는 컬럼 )은 off-page라는 별도 외부 공간에 데이터를 저장 하지만
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MySQL server에서는 8100 byte 를 넘지 않으면 LOB을 inline 저장  , 8101 byte 부터는 off-page에 저장
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;( inline 저장이란 B-Tree 구조에 저장하는 것을 말한다 )
+
 5. MEDIUMTEXT
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;문자열 데이터 최대 16777215 Byte
@@ -190,6 +207,8 @@ data type
 7. JSON
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JSON 문자열 데이터
+
+
 
 숫자형
 
