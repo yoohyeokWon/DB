@@ -273,6 +273,10 @@ data type
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 이진 데이터 4294967295 byte
 
+Partition
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 
 ## Index
 
@@ -294,23 +298,35 @@ page
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터를 insert 하면 실질적으로는 page에 들어가게 되고 select를 하면 테이블을 읽는게 아닌 page에서 데이터를 읽어온다
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; B-tree 구조의 노드에서도 담을수 있는 인덱스의 사이즈는 16KB이며, 인덱스 컬럼을 잡을때 사이즈가 작을 수록 한 페이지에 많이담을수있음
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 노드에서도 담을수 있는 인덱스의 사이즈도 16KB이며, 인덱스 컬럼을 잡을때 사이즈가 작을 수록 한 페이지에 많이담을수있음
 
 clustered index
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 테이블 당 한개만 존재 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 클러스터 인덱스의 경우 저장 시 순서 보장을 위해 데이터를 물리적으로 재배열
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 테이블 자체가 인덱스이기 때문에 따로 인덱스 페이지를 생성하지 않고
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; non-clustered index 보다 조회 성능은 뛰어나지면 추가/수정/삭제 시 성능이 떨어질수 있음
 
 nonclustered index
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 데이터 자채를 물리적으로 재배열하지 않고 인덱스 페이지만 정렬
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 인덱스 페이지를 따로 생성하기 때문에 추가적인 용량이 필요함
 
-https://jeong-pro.tistory.com/242
+인덱스 선정 기준
 
-인덱스 선정 방법 
+1. 분포도 ( Cardinality ) 
+
+2. 선택도 ( Selectivity )
+
+3. 조회 활용도
+
+4. 수정 빈도
+
+
 
 ## Query
 실행순서
