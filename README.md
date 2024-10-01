@@ -424,38 +424,150 @@ multi-column index
 ## MySQL
 1. Architecture
 
-2. Log
+![image](https://github.com/user-attachments/assets/da6c550a-b962-48bb-b03d-161207767c3c)
+
+Mysql Server
+
+스토리지 엔진
+
+&nbsp;&nbsp; 실제 데이터를 저장하고 가져오는 역할 ( 핸들러를 의미함 )
+
+핸들러 API
+
+&nbsp;&nbsp; MySQL엔진과 스토리지 엔진이 데이터를 주고 받기 위한 API
+
+MySQL 엔진
+
+&nbsp;&nbsp; 1.쿼리 파서
+
+&nbsp;&nbsp;&nbsp;&nbsp; 요청받은 쿼리를 MySQL이 인식할수 있게 트리형태의 구조를 만들어 내는 작업을 함
+
+&nbsp;&nbsp;&nbsp;&nbsp; 문법오류 체크 쿼리파서가 진행
+
+&nbsp;&nbsp; 2. 전처리기
+
+&nbsp;&nbsp;&nbsp;&nbsp; 파서 과정에서 만들어진 파서 쿼리기반으로 구조적 문제적 확인 ( 테이블명, 컬럼명, 함수와 함수에전달할 객체 존재여부 접근 권한 등 )
+
+&nbsp;&nbsp; 3. 옵티마이저
+
+&nbsp;&nbsp;&nbsp;&nbsp; MySQL 은 CBO옵티마이저를 사용하기 때문에 쿼리를 가장 저렴한 비용으로 처리할지 결정 ( 두뇌 역할 )
+
+&nbsp;&nbsp; 4. 실행엔진
+
+&nbsp;&nbsp;&nbsp;&nbsp; 옵티마이저에 의해 생성된 실행계획대로 쿼리를 실행하는 역할이며 실제 실행엔진에서 스토리지 엔진과 지속적으로 핸들로 API를 통해 통신
+
+
+
+![image](https://github.com/user-attachments/assets/44fe155b-142f-4cc3-80ae-56edf2ac094b)  
+
+실제 쿼리가 실행되는 과정
+
+5.7버전 까진 클라이언트단과 쿼리파서 사이에 __쿼리캐시__ 라는게 존재했지만 8.0 부터는 없어짐
+
+쿼리캐시는 클라이언트의 요청을 쿼리파서에 넘기기전에 동일한 쿼리의 결과를 캐싱하고있는지 체크하는 역할이었음
+
+삭제원인 - A 테이블의 데이터가 변경될 경우 쿼리캐시에 저장된 결과 중 A 테이블과 연관된 모든것들을 삭제해줘야 해서 동시 처리 성능 저하를 유발
+
+
+
+MySQL 스레딩 구조
+
+![image](https://github.com/user-attachments/assets/b9c12307-9de7-4229-bfa1-ae9582688737)
+
+MySQL은 프로세스 기반이 아닌 스레드 기반으로 동작 ( 포그라운드 / 백그라운드 로 나뉨 )
+
+포그라운드 스레드
+
+&nbsp;&nbsp; 포그라운드 스레드는 MySQL 서버에 접속된 클라이언트 수만큼 존재
+
+&nbsp;&nbsp; 사용자가 요청하는 쿼리문장을 처리하는 역할을 하며, 사용자의 작업을 마치고 커넥션이 종료되면 해당 스레드는 캐시로 돌아감
+
+백그라운드 스레드
+
+&nbsp;&nbsp; InnoDB 스토리지 엔진에서는 로그 스레드와 버퍼에 있는 데이터를 디스크로 내리는 쓰기 스레드가 가장 중요함
+
+&nbsp;&nbsp; 쓰기 작업은 버퍼링해서 일괄 처리하는 기능을 갖고있음 
+
+&nbsp;&nbsp; binlog 와 redo log 
 
 &nbsp;&nbsp;binlog
 
+&nbsp;&nbsp;&nbsp;&nbsp; binlog 는 DDL, DML을 통해 DB변경이 있을경우 mysql server에서 변경 이력을 기록하는 
+
+&nbsp;&nbsp;&nbsp;&nbsp; 이진파일( select 문은 제외됨 ) 이며 SQL에 대응한 논리적인 로그라 한다 
+
+&nbsp;&nbsp;&nbsp;&nbsp; 주로 사용되는 용도는 MySQL server 간 replication 또는 HA 구성에 사용된다 
+
+&nbsp;&nbsp;&nbsp;&nbsp; 
+
 &nbsp;&nbsp;redo log 
 
-3. Data file
+&nbsp;&nbsp;&nbsp;&nbsp; redo log 는 MySQL server 또는 OS 의 문제등으로 인하여 MySQL server 가 비정상적으로 종료됐을때 
 
-&nbsp;&nbsp;디렉토리는 database name 으로 생성되고 tablename.frm 파일로 
- 
+&nbsp;&nbsp;&nbsp;&nbsp; 스토리지에 넘기지 못한 데이터를 잃지 않게 해주는 안전장치임. ( 안전장치 일뿐 유실이 없는건 아님 )
 
+&nbsp;&nbsp;&nbsp;&nbsp; redo log 는 innodb 에만 있는 물리적 로그이며 ACID 를 보장하며, 엔진의 갱신정보를 일시적으로 보존한다      
 
-## MSSQL
+&nbsp;&nbsp; 관련된 설정으로는 __innodb-flush-log-at-trx-commit__ 과 __sync-binlog__ 가 있다. 
 
-1. Architecture
+&nbsp;&nbsp;&nbsp;&nbsp; trx commit 이 
 
-2. Log
+&nbsp;&nbsp;&nbsp;&nbsp; 0 일땐, 클라에서 commit, rollback 시 메모리에 redo log 를 기록하고 1초에 한번씩 메모리에서 디스크로 redo log 를 내림
 
-&nbsp;&nbsp;transaction log
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 장점으론 디스크 I/O 가 줄어들지만, MySQL server 만 재부팅되어도 디스크에 내리지 않은 redo log 들은 증발
 
-&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp; 1 일땐, 클라에서 트랜잭션이 실행 되면 메모리에 redo log 를 기록하고 commit 시 메모리에서 디스크로 redo log 를 내림
 
-3. Data file
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 장점으론 데이터 유실이 없으나, 0번과 반대로 디스크 I/O 가 늘어남
 
-&nbsp;&nbsp;mdf
+&nbsp;&nbsp;&nbsp;&nbsp; 2 일땐, 클라에서 트랜잭션이 실행 되면 메모리에 redo log 를 기록하고 commit 시 O/S 버퍼로 redo log 를 내린 후 1초에 한번씩 디스크로 redo log 를 내림 
 
-&nbsp;&nbsp;ldf
+&nbsp;&nbsp;&nbsp;&nbsp; O/S 버퍼로 redo log 를 내린 후 1초에 한번씩 디스크로 redo log 를 내림 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 장점으론 OS 장애만 아니면 데이터 유실이 없으나 OS 장애 시 디스크로 내리지 않은 redo log 들은 증발
+
+&nbsp;&nbsp;&nbsp;&nbsp; sync binlog 는 정수로 설정이 가능하며 매 N 개의 쿼리 이후 디스크와 동기화 한다는 설정이다
+
+&nbsp;&nbsp;&nbsp;&nbsp; trx commit 과 동일하게 1이 가장 안정적이긴 하지만, sync binlog 가 1 이라 하더라도      
+
+&nbsp;&nbsp;&nbsp;&nbsp; 시스템 장애가 발생하였을때 DB 데이터와 binlog 가 일치 하지 않을 가능성은 존재한다
+
+&nbsp;&nbsp;&nbsp;&nbsp; innodb 테이블에 커밋이 실행 되면, MySQL 은 모든 트랜잭션 쿼리들을 bin log 에 기록하고 이후 innodb 트랜잭션을 커밋하는데
+
+&nbsp;&nbsp;&nbsp;&nbsp; 저 사이에 장애가 발생하면 innodb 트랜잭션은 롤백, binlog 는 기록되어있을것이다.
+
+&nbsp;&nbsp;&nbsp;&nbsp; 이러한 문제를 해결하기 위해 binlodg 와 innodb 테이블의 데이터 동기화를 보장는 
+
+&nbsp;&nbsp;&nbsp;&nbsp; innodb-support-xa 변수 설정을 1 로 변경해줘야한다 .
+
 
 ## Aurora RDS
 
+기본적으로 RDS Aurora MySQL 과 RDS MySQL 의 MySQL 엔진은 동일하나 가장 큰 차이점은 스토리지 이다 
+
+Aurora 는 shared Storage 를 사용하고 replication도 binlog 기반이 아닌 Storage 기반으로 진행됨
+
+Aurora MySQL을 띄우면 3개의 AZ에 각각 스토리지 노드가 생기고, 4개의 쓰기세트와 3개의 읽기 세트를 갖는 6개의 복사본 쿼럼을 사용
+
+4개의 쓰기 세트란 스토리지(디스크)로 데이터가 입력될때 6개 노드 중 4개에 노드에 정상적으로 데이터가 들어가면 정상 
+
+3개의 읽기 세트란 스토리지에서 데이터를 읽어올때 6개 노대 중 3개의 노드에서 동일한 데이터를 읽어오면 정상
+
+![image](https://github.com/user-attachments/assets/13b21d10-2b5b-49e0-8310-34c591d1a1e0)
+
+더 상세한 내용은 아래 aws 블로그를 참고하면 좋을듯
+
+https://aws.amazon.com/ko/blogs/korea/amazon-aurora-under-the-hood-quorum-and-correlated-failure/
 
 
+
+
+
+
+
+
+다음 시간은 replication ~ 
+![image](https://github.com/user-attachments/assets/cfa5ec14-88f0-47dd-82df-b71ebcd532f6)
 
 
    
