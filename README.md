@@ -482,9 +482,23 @@ MySQL은 프로세스 기반이 아닌 스레드 기반으로 동작 ( 포그라
 
 &nbsp;&nbsp; 사용자가 요청하는 쿼리문장을 처리하는 역할을 하며, 사용자의 작업을 마치고 커넥션이 종료되면 해당 스레드는 캐시로 돌아감
 
+&nbsp;&nbsp; MySQL 에선 사용자 스레드와 포그라운드 스레드는 같은 의미로 사용됨
+
 백그라운드 스레드
 
-&nbsp;&nbsp; InnoDB 스토리지 엔진에서는 로그 스레드와 버퍼에 있는 데이터를 디스크로 내리는 쓰기 스레드가 가장 중요함
+&nbsp;&nbsp; 1. insert buffer를 병합하는 스레드
+
+&nbsp;&nbsp; 2. 로그를 디스크에 기록하는 스레드
+
+&nbsp;&nbsp; 3. innodb 버퍼풀의 데이터를 디스크에 기록하는 스레드
+
+&nbsp;&nbsp; 4. 데이터를 버퍼로 읽어 오는 스레드
+
+&nbsp;&nbsp; 5. lock , deadlock 모니터링을 하는 스레
+
+&nbsp;&nbsp; InnoDB 스토리지 엔진에서는 읽기 작업은 주로 포그라운드 스레드에서 처리되기때문에
+
+&nbsp;&nbsp; 로그 스레드와 버퍼에 있는 데이터를 디스크로 내리는 쓰기 스레드가 가장 중요함
 
 &nbsp;&nbsp; 쓰기 작업은 버퍼링해서 일괄 처리하는 기능을 갖고있음 
 
@@ -566,7 +580,7 @@ https://aws.amazon.com/ko/blogs/korea/amazon-aurora-under-the-hood-quorum-and-co
 
 
 
-다음 시간은 replication ~ 
+다음 시간은 replication 이랑 버퍼풀을 해볼까요? 
 ![image](https://github.com/user-attachments/assets/cfa5ec14-88f0-47dd-82df-b71ebcd532f6)
 
 
