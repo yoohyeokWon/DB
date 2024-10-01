@@ -581,6 +581,8 @@ https://aws.amazon.com/ko/blogs/korea/amazon-aurora-under-the-hood-quorum-and-co
 
 
 다음 시간은 replication 이랑 버퍼풀을 해볼까요? 
+
+
 ![image](https://github.com/user-attachments/assets/cfa5ec14-88f0-47dd-82df-b71ebcd532f6)
 
 
